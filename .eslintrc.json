@@ -9,6 +9,14 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
+  "overrides": [
+    {
+      "files": ["*.stories.@(js|jsx|ts|tsx)", "*stories.@(js|jsx|ts|tsx)"],
+      "rules": {
+        "react/jsx-no-bind": "off"
+      }
+    }
+  ],
   "plugins": ["react-refresh"],
   "rules": {
     //* Typescript specific rules
@@ -44,6 +52,7 @@
 
     //* React specific rules
     "react/display-name": "off",
+    "react/prop-types": "off",
     "react/jsx-no-bind": ["warn"],
     "react/sort-prop-types": ["warn"],
     "react/sort-default-props": ["warn"],
