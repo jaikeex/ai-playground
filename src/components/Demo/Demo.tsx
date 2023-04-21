@@ -11,6 +11,7 @@ export const Demo: React.FC = (): JSX.Element => {
   const [targetLanguage, setTargetLanguage] = useState<Language>('en');
   const [translatedText, setTranslatedText] = useState<string | null>(null);
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
+
   const [translate, { isFetching, error }] = useLazyTranslateQuery();
 
   const handleSubmit = useCallback(
@@ -27,7 +28,7 @@ export const Demo: React.FC = (): JSX.Element => {
         setDetectedLanguage(findLaguageByValue(detectedLanguageFromData));
       }
     },
-    [inputText, translate]
+    [inputText, targetLanguage, translate, findLaguageByValue]
   );
 
   const handleInput = useCallback(
@@ -54,14 +55,18 @@ export const Demo: React.FC = (): JSX.Element => {
             value={inputText}
             onChange={handleInput}
             maxLength={350}
+            spellCheck={false}
             required
           />
           <div className="w-full relative">
+            <label htmlFor="language" className="text-sm">
+              Target language:
+            </label>
             <select
               name="language"
               id="language"
               onChange={handleLanguageSelect}
-              className="bg-white border border-gray-200 text-sm rounded-md font-medium focus:ring-blue-500 focus:border-black block w-full p-2.5 appearance-none"
+              className="bg-white border border-gray-200 text-sm shadow-lg rounded-md font-medium focus:ring-blue-500 focus:border-black block w-full p-2.5 mt-1 appearance-none"
               style={{
                 backgroundImage: 'none'
               }}
@@ -72,7 +77,7 @@ export const Demo: React.FC = (): JSX.Element => {
                 </option>
               ))}
             </select>
-            <FaChevronDown className="absolute right-3 top-3.5" fontSize={14} />
+            <FaChevronDown className="absolute right-3 top-11" fontSize={14} />
           </div>
           <button
             disabled={isFetching}

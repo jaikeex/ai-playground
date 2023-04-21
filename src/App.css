@@ -92,7 +92,7 @@ h1 {
 }
 
 .submit_btn {
-  @apply hover:border-gray-700 hover:text-gray-700 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-gray-200 font-sans text-sm font-medium text-gray-400;
+  @apply hover:border-gray-700 hover:bg-slate-200 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-slate-400 bg-white font-sans text-sm font-medium;
 }
 
 .link_card {
