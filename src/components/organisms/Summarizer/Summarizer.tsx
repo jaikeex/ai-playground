@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLazyGetSummaryQuery } from 'store';
-import { FaLink } from 'react-icons/fa';
+import { GoLink } from 'react-icons/go';
 import { Button, Card, ErrorText, Loader } from 'components/atoms';
 import { FaRegCopy, FaCheck } from 'react-icons/fa';
 import { Input } from 'components/molecules';
@@ -69,7 +69,7 @@ export const Summarizer: React.FC = (): JSX.Element => {
       <div className="flex flex-col w-full gap-2">
         <form className="relative flex flex-col gap-4 justify-center items-center" onSubmit={handleSubmit}>
           <Input
-            icon={<FaLink />}
+            icon={<GoLink />}
             type="url"
             placeholder="Paste the article link"
             value={inputUrl}

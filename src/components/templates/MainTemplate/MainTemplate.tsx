@@ -36,7 +36,7 @@ export const MainTemplate: React.FC = (): JSX.Element => {
       <Hero />
       <ToggleButtonGroup defaultValue="translator" onChange={handleFeatureChange} className="mt-8">
         <ToggleButton value="translator">Translator</ToggleButton>
-        <ToggleButton value="summarizer">Summarizer</ToggleButton>
+        <ToggleButton value="summarizer">Article Summarizer</ToggleButton>
         <ToggleButton value="image-generator">Image generator</ToggleButton>
       </ToggleButtonGroup>
       <section className="mt-12 w-full max-w-xl">{featureComponent}</section>

@@ -7,7 +7,7 @@
 */
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .main {
@@ -75,10 +75,6 @@
   @apply relative z-10 mx-auto sm:px-16 px-6 pb-12 font-roboto;
 }
 
-.black_btn {
-  @apply rounded-full border border-black bg-black py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-black;
-}
-
 h1 {
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black;
 }
@@ -108,7 +104,7 @@ h4 {
 }
 
 .btn {
-  @apply hover:border-gray-700 hover:bg-slate-200 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-slate-400 bg-white font-sans text-sm font-medium uppercase transition-colors;
+  @apply hover:border-gray-700 hover:bg-slate-200 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-slate-400 bg-white font-sans text-sm font-medium uppercase transition-colors disabled:text-gray-500 disabled:bg-gray-200 disabled:hover:border-slate-400;
 }
 
 .link_card {
