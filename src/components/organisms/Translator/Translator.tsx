@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { useLazyTranslateQuery } from 'store';
 import languages, { findLaguageByValue } from 'utils/translation-languages';
 import { Select, TextArea } from 'components/molecules';
-import { Button, Loader } from 'components/atoms';
+import { Button, Card, Loader } from 'components/atoms';
 import { ErrorText } from 'components/atoms/ErrorText';
 
 type Language = (typeof languages)[number]['value'];
@@ -74,10 +74,12 @@ export const Translator: React.FC = (): JSX.Element => {
         {error ? <ErrorText>Something went wrong :( please try again later!</ErrorText> : null}
         {translatedText ? (
           <div className="flex flex-col gap-3 min-w-full">
-            <p className="text-sm">{`Detected language: ${detectedLanguage || 'Language could not be recognized'}`}</p>
-            <div className="summary_box">
-              <p>{translatedText}</p>
-            </div>
+            <p className="font-medium text-sm">{`Detected language: ${
+              detectedLanguage || 'Language could not be recognized'
+            }`}</p>
+            <Card>
+              <p className="font-medium text-sm">{translatedText}</p>
+            </Card>
           </div>
         ) : null}
       </div>

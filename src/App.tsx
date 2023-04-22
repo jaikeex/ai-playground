@@ -1,7 +1,7 @@
 import React from 'react';
+import { MainPage } from 'pages';
 import './App.css';
-import { Hero } from 'components/Hero';
-import { Translator } from 'components/organisms/Translator';
+import { Header } from 'components/molecules/Header';
 
 export const App = () => (
   <main>
@@ -9,8 +9,8 @@ export const App = () => (
       <div className="gradient" />
     </div>
     <div className="app">
-      <Hero />
-      <Translator />
+      <Header />
+      <MainPage />
     </div>
   </main>
 );

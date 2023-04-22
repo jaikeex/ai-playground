@@ -12,18 +12,19 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   value,
   onClick = () => {}
 }): JSX.Element => {
-  const toggledClasses = 'bg-orange-200 shadow-none hover:shadow-none';
+  const defaultClasses = 'bg-white shadow-md active:shadow-sm';
+  const toggledClasses = 'bg-orange-300 shadow-none';
 
   const handleToggle = useCallback(() => {
     onClick(value);
-  }, [onClick]);
+  }, [onClick, value]);
 
   return (
     <button
       onClick={handleToggle}
-      className={`${
-        toggled ? toggledClasses : ''
-      } py-3 px-6 flex items-center justify-center rounded border border-slate-400 font-sans text-sm font-medium shadow-md uppercase active:shadow-sm transition-all will-change-transform `}
+      className={`py-3 px-6 flex  items-center justify-center rounded border border-slate-400 font-sans text-sm font-medium  uppercase active:shadow-sm transition-all will-change-transform  ${
+        toggled ? toggledClasses : defaultClasses
+      }`}
     >
       {children}
     </button>

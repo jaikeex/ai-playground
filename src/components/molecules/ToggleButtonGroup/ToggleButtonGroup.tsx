@@ -2,12 +2,14 @@ import type { ToggleButtonProps } from 'components/atoms/ToggleButton';
 import React, { useCallback, useMemo, useState } from 'react';
 
 export type ToggleButtonGroupProps = {
+  className?: string;
   defaultValue?: string;
   onChange?: (value: string) => void;
 } & React.PropsWithChildren;
 
 export const ToggleButtonGroup: React.FC<ToggleButtonGroupProps> = ({
   children = null,
+  className = '',
   defaultValue = '',
   onChange = () => {}
 }): JSX.Element => {
@@ -36,5 +38,7 @@ export const ToggleButtonGroup: React.FC<ToggleButtonGroupProps> = ({
     });
   }, [handleButtonClick, children, activeButton]);
 
-  return <div className="flex justify-center items-center gap-4">{childrenWithProps}</div>;
+  return (
+    <div className={`flex justify-center items-center max-sm:flex-col gap-4 ${className}`}>{childrenWithProps}</div>
+  );
 };
