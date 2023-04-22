@@ -7,8 +7,8 @@ import { ThemeProvider } from 'theming/ThemeProvider';
 export const App = () => (
   <ThemeProvider>
     <main>
-      <div className="main">
-        <div className="gradient" />
+      <div className="main_test">
+        <div className="gradient dark:hidden" />
       </div>
       <div className="app">
         <Header />

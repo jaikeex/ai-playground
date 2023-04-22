@@ -12,8 +12,8 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   value,
   onClick = () => {}
 }): JSX.Element => {
-  const defaultClasses = 'bg-white shadow-md active:shadow-sm';
-  const toggledClasses = 'bg-orange-300 shadow-none';
+  const defaultClasses = 'bg-white shadow-md active:shadow-sm dark:bg-slate-800';
+  const toggledClasses = 'bg-orange-300 shadow-none text-black dark:bg-orange-400';
 
   const handleToggle = useCallback(() => {
     onClick(value);

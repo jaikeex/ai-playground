@@ -32,7 +32,7 @@ export const MainTemplate: React.FC = (): JSX.Element => {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center pt-24">
       <Hero />
       <ToggleButtonGroup defaultValue="translator" onChange={handleFeatureChange} className="mt-8">
         <ToggleButton value="translator">Translator</ToggleButton>

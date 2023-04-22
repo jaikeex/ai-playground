@@ -44,7 +44,7 @@
 
 .gradient {
   height: fit-content;
-  z-index: 3;
+  z-index: 30;
   width: 100%;
   max-width: 640px;
   background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 1) 0px, transparent 0%),
@@ -71,32 +71,37 @@
 
 /* Tailwind Styles */
 
+.main_test {
+  @apply w-screen min-h-screen fixed flex justify-center pt-28 px-6 pb-40 pointer-events-none before:bg-radial-gradient-circle-light dark:before:bg-radial-gradient-circle-dark before:absolute before:z-20 before:w-full before:h-full before:top-0
+  after:z-10 after:absolute after:w-full after:h-full after:top-0 after:opacity-40 after:invert after:bg-grid;
+}
+
 .app {
-  @apply relative z-10 mx-auto sm:px-16 px-6 pb-12 font-roboto;
+  @apply relative z-10 mx-auto sm:px-16 px-6 pb-12 font-roboto text-black dark:text-white;
 }
 
 h1 {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black;
+  @apply mt-5 text-5xl font-extrabold leading-[1.15];
+}
+
+h2 {
+  @apply mt-5 text-lg text-gray-600 dark:text-gray-300 sm:text-xl text-center max-w-2xl;
 }
 
 h4 {
-  @apply font-bold text-gray-600 text-xl;
+  @apply font-bold text-gray-600 dark:text-gray-200 text-xl;
 }
 
 .orange_gradient {
   @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }
 
-.desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl;
-}
-
 .input {
-  @apply w-full block rounded-md border border-gray-200 bg-white py-2.5 pr-4 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply w-full block rounded-md border border-gray-200 bg-white py-2.5 pr-4 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
 }
 
 .textarea {
-  @apply block w-full resize-none rounded-md border border-gray-200 bg-white py-2.5 pl-2 pr-12 text-sm shadow-lg transition-colors font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full resize-none rounded-md border border-gray-200 bg-white py-2.5 pl-2 pr-12 shadow-lg transition-colors focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
 }
 
 .submit_btn {
@@ -104,7 +109,7 @@ h4 {
 }
 
 .btn {
-  @apply hover:border-gray-700 hover:bg-slate-200 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-slate-400 bg-white font-sans text-sm font-medium uppercase transition-colors disabled:text-gray-500 disabled:bg-gray-200 disabled:hover:border-slate-400;
+  @apply tracking-wide hover:border-gray-700 hover:bg-slate-200 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-slate-400 bg-white font-sans text-sm font-medium uppercase transition-colors disabled:text-gray-500 disabled:bg-gray-200 disabled:hover:border-slate-400 dark:bg-slate-700 dark:hover:border-gray-300 dark:disabled:hover:border-slate-400 dark:text-white dark:disabled:text-gray-400;
 }
 
 .link_card {
@@ -123,5 +128,5 @@ h4 {
   @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
 }
 .card {
-  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
+  @apply rounded-xl border border-gray-200 bg-white/20 dark:bg-slate-800 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] dark:shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.05)] backdrop-blur p-4;
 }

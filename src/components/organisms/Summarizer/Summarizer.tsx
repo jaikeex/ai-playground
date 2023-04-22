@@ -63,6 +63,12 @@ export const Summarizer: React.FC = (): JSX.Element => {
     }
   }, [setPreviousArticles]);
 
+  useEffect(() => {
+    if (summary) {
+      setTimeout(() => window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' }), 100);
+    }
+  }, [summary]);
+
   return (
     <React.Fragment>
       {/* Search */}
@@ -90,7 +96,7 @@ export const Summarizer: React.FC = (): JSX.Element => {
           <div className="flex flex-col gap-3">
             <h4>Article Summary</h4>
             <Card>
-              <p className="font-medium text-sm text-gray-700">{summary}</p>
+              <p className="text-md text-gray-700 dark:text-gray-200">{summary}</p>
             </Card>
           </div>
         ) : null}
@@ -98,12 +104,12 @@ export const Summarizer: React.FC = (): JSX.Element => {
       {/* Browse History */}
       <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
         {previousArticles.reverse().map((item, index) => (
-          <div key={`link-${index}`} onClick={() => setSummary(item.summary)} className="link_card">
+          <Card key={`link-${index}`} onClick={() => setSummary(item.summary)} className="link_card">
             <div className="copy_btn" onClick={handleCopy(item.url)}>
               {copied === item.url ? <FaCheck /> : <FaRegCopy />}
             </div>
-            <p className="flex-1  text-blue-700 font-medium text-sm truncate">{item.url}</p>
-          </div>
+            <p className="flex-1 text-blue-700 font-medium text-sm truncate dark:text-blue-300">{item.url}</p>
+          </Card>
         ))}
       </div>
     </React.Fragment>

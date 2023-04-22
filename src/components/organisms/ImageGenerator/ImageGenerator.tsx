@@ -41,7 +41,7 @@ export const ImageGenerator: React.FC = (): JSX.Element => {
         <form className="relative flex flex-col gap-4 justify-center items-center" onSubmit={handleSubmit}>
           <TextArea
             placeholder="Describe how the final image should look like"
-            className="h-14"
+            className="h-18"
             value={promptInput}
             onChange={handleInput}
             maxLength={350}
