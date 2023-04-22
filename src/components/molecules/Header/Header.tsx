@@ -7,7 +7,7 @@ export const Header: React.FC = (): JSX.Element => (
     <Logo />
     <div className="flex items-center gap-6">
       <ThemeSwitchButton />
-      <Link href="https://github.com/jaikeex/ai-playground" target="_blank" rel="noreferrer">
+      <Link href="https://github.com/jaikeex/ai-playground" target="_blank" rel="noreferrer" className="ml-8">
         <FaGithub fontSize={22} />
       </Link>
       <Link href="https://github.com/jaikeex/ai-playground" target="_blank" rel="noreferrer">
