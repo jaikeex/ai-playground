@@ -9,7 +9,7 @@ export default {
 
 const Template: StoryFn<CardProps> = (args) => (
   <Card {...args}>
-    <p className="font-medium text-sm text-gray-700">
+    <p className="text-sm text-gray-700 dark:text-gray-200">
       Florida Governor Ron DeSantis' feud with Disney is drawing criticism from fellow Republicans, including former
       Vice President Mike Pence, former New Jersey Governor Chris Christie, New Hampshire Governor Chris Sununu, and
       allies of former UN Ambassador Nikki Haley. DeSantis has been needling the entertainment giant, but his potential

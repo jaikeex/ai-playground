@@ -7,7 +7,7 @@ import './App.css';
 export const App = () => (
   <ThemeProvider>
     <main>
-      <div className="main">
+      <div className="app_background">
         <div className="gradient dark:hidden" />
       </div>
       <div className="app">

@@ -33,13 +33,17 @@
 
 /* Tailwind Styles */
 
-.main {
+main {
+  @apply font-roboto text-black dark:text-white;
+}
+
+.app_background {
   @apply w-screen min-h-screen fixed flex justify-center pt-28 px-6 pb-40 max-md:p-0 pointer-events-none before:bg-radial-gradient-circle-light dark:before:bg-radial-gradient-circle-dark before:absolute before:z-20 before:w-full before:h-full before:top-0
   after:z-10 after:absolute after:w-full after:h-full after:top-0 after:opacity-40 after:invert after:bg-grid;
 }
 
 .app {
-  @apply relative z-10 mx-auto sm:px-16 px-6 py-20 font-roboto text-black dark:text-white;
+  @apply relative z-10 mx-auto sm:px-16 px-6 py-20;
 }
 
 h1 {

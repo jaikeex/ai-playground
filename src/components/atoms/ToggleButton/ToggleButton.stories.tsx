@@ -13,9 +13,4 @@ export const Default = Template.bind({});
 Default.args = {
   value: 'toggle-button'
 };
-
-export const Toggled = Template.bind({});
-Toggled.args = {
-  ...Default.args,
-  toggled: true
-};
+Default.storyName = 'ToggleButton';
