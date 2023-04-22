@@ -7,8 +7,8 @@ export const Hero: React.FC = (): JSX.Element => (
       <span className="orange_gradient">AI</span> Playground
     </h1>
     <h2 className="desc">
-      Simplify your reading with Summize, an open-source article summarizer that transforms lengthy articles into clear
-      and concise summaries
+      Welcome to my multifunctional AI playground! Easily translate text, generate summaries of articles, and create
+      images, all in one place!
     </h2>
   </div>
 );

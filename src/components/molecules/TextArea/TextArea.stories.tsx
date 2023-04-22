@@ -3,7 +3,7 @@ import { StoryFn, Meta } from '@storybook/react';
 import { TextArea, TextAreaProps } from './TextArea';
 
 export default {
-  title: 'TextArea',
+  title: 'Molecules/TextArea',
   component: TextArea
 } as Meta<typeof TextArea>;
 

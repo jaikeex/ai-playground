@@ -3,7 +3,7 @@ import { StoryFn, Meta } from '@storybook/react';
 import { Card, CardProps } from './Card';
 
 export default {
-  title: 'Card',
+  title: 'Atoms/Card',
   component: Card
 } as Meta<typeof Card>;
 
@@ -35,3 +35,4 @@ const Template: StoryFn<CardProps> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {};
+Default.storyName = 'Card';

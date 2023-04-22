@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 /* 
-  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+  The idea for this layout including the grid background is heavily inspired by the creator of https://dub.sh – all credits go to them! 
 */
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
 
 .main {
   width: 100vw;
@@ -68,7 +72,7 @@
 /* Tailwind Styles */
 
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col mx-auto sm:px-16 px-6 pb-12 font-roboto;
+  @apply relative z-10 mx-auto sm:px-16 px-6 pb-12 font-roboto;
 }
 
 .black_btn {
@@ -96,7 +100,7 @@ h4 {
 }
 
 .textarea {
-  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 pl-2 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full resize-none rounded-md border border-gray-200 bg-white py-2.5 pl-2 pr-12 text-sm shadow-lg transition-colors font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .submit_btn {

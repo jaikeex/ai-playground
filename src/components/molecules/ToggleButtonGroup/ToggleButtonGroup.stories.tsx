@@ -4,7 +4,7 @@ import { ToggleButtonGroup, ToggleButtonGroupProps } from './ToggleButtonGroup';
 import { ToggleButton } from 'components/atoms/ToggleButton';
 
 export default {
-  title: 'ToggleButtonGroup',
+  title: 'Molecules/ToggleButtonGroup',
   component: ToggleButtonGroup
 } as Meta<typeof ToggleButtonGroup>;
 
@@ -20,3 +20,4 @@ export const Default = Template.bind({});
 Default.args = {
   defaultValue: 'tb-2'
 };
+Default.storyName = 'ToggleButtonGroup';

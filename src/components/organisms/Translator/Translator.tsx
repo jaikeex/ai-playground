@@ -52,6 +52,7 @@ export const Translator: React.FC = (): JSX.Element => {
         <form className="relative flex flex-col gap-4 justify-center items-center" onSubmit={handleSubmit}>
           <TextArea
             placeholder="Text to translate (maximum 350 characters)"
+            className="h-32"
             value={inputText}
             onChange={handleInput}
             maxLength={350}

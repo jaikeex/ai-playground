@@ -29,7 +29,10 @@ export const imageApi = createApi({
           url: `/text2image`,
           method: 'POST',
           body: encodedParams,
-          responseHandler: (response) => response.blob()
+          responseHandler: async (response) => {
+            const blob = await response.blob();
+            return URL.createObjectURL(blob);
+          }
         };
       }
     })

@@ -32,7 +32,7 @@ export const MainTemplate: React.FC = (): JSX.Element => {
   }
 
   return (
-    <React.Fragment>
+    <div className="flex flex-col items-center">
       <Hero />
       <ToggleButtonGroup defaultValue="translator" onChange={handleFeatureChange} className="mt-8">
         <ToggleButton value="translator">Translator</ToggleButton>
@@ -40,6 +40,6 @@ export const MainTemplate: React.FC = (): JSX.Element => {
         <ToggleButton value="image-generator">Image generator</ToggleButton>
       </ToggleButtonGroup>
       <section className="mt-12 w-full max-w-xl">{featureComponent}</section>
-    </React.Fragment>
+    </div>
   );
 };

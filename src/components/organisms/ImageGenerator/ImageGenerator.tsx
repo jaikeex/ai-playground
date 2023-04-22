@@ -16,7 +16,7 @@ export const ImageGenerator: React.FC = (): JSX.Element => {
       const response = await getImage({ prompt: promptInput });
 
       if (response) {
-        setGeneratedImage(URL.createObjectURL(response.data));
+        setGeneratedImage(response.data);
       }
     },
     [promptInput, getImage, setGeneratedImage]
@@ -31,7 +31,7 @@ export const ImageGenerator: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     if (generatedImage) {
-      window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' });
+      setTimeout(() => window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' }), 100);
     }
   }, [generatedImage]);
 
@@ -41,10 +41,10 @@ export const ImageGenerator: React.FC = (): JSX.Element => {
         <form className="relative flex flex-col gap-4 justify-center items-center" onSubmit={handleSubmit}>
           <TextArea
             placeholder="Describe how the final image should look like"
+            className="h-14"
             value={promptInput}
             onChange={handleInput}
             maxLength={350}
-            height={14}
             required
           />
           <Button disabled={isFetching} type="submit">
@@ -54,7 +54,7 @@ export const ImageGenerator: React.FC = (): JSX.Element => {
       </div>
       <div className="my-10 max-w-full flex justify-center items-center">
         {isFetching ? <Loader /> : null}
-        {error ? <ErrorText>{error.toString()}</ErrorText> : null}
+        {error ? <ErrorText>Something went wrong :( please try again later!</ErrorText> : null}
         {generatedImage ? (
           <div className="flex flex-col items-center gap-3 min-w-full">
             <Card className="flex flex-col items-center">

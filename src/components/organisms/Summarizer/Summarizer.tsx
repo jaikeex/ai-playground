@@ -76,7 +76,9 @@ export const Summarizer: React.FC = (): JSX.Element => {
             onChange={handleInput}
             required
           />
-          <Button type="submit">Summarize</Button>
+          <Button disabled={isFetching} type="submit">
+            Summarize
+          </Button>
         </form>
       </div>
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import { MainTemplate, MainTemplateProps } from './MainTemplate';
+import { MainTemplate } from './MainTemplate';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 
 export default {
-  title: 'MainTemplate',
+  title: 'Templates/MainTemplate',
   component: MainTemplate,
   decorators: [
     (Story) => (
@@ -16,7 +16,8 @@ export default {
   ]
 } as Meta<typeof MainTemplate>;
 
-const Template: StoryFn<MainTemplateProps> = (args) => <MainTemplate {...args} />;
+const Template: StoryFn = (args) => <MainTemplate {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
+Default.storyName = 'MainTemplate';

@@ -4,7 +4,7 @@ import { Select, SelectProps } from './Select';
 import languages from 'utils/translation-languages';
 
 export default {
-  title: 'Select',
+  title: 'Molecules/Select',
   component: Select
 } as Meta<typeof Select>;
 

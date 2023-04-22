@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from 'store';
 
 export default {
-  title: 'Summarizer',
+  title: 'Organisms/Summarizer',
   component: Summarizer,
   decorators: [
     (Story) => (
@@ -20,3 +20,4 @@ const Template: StoryFn = (args) => <Summarizer {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
+Default.storyName = 'Summarizer';

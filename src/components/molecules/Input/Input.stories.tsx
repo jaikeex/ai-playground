@@ -4,7 +4,7 @@ import { Input, InputProps } from './Input';
 import { FaLink } from 'react-icons/fa';
 
 export default {
-  title: 'Input',
+  title: 'Molecules/Input',
   component: Input
 } as Meta<typeof Input>;
 
