@@ -1,5 +1,5 @@
-import type { ToggleButtonProps } from 'components/atoms/ToggleButton';
 import React, { useCallback, useMemo, useState } from 'react';
+import type { ToggleButtonProps } from 'components/atoms';
 
 export type ToggleButtonGroupProps = {
   className?: string;

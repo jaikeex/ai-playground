@@ -2,15 +2,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useLazyGetSummaryQuery } from 'store';
 import { GoLink } from 'react-icons/go';
 import { Button, Card, ErrorText, Loader } from 'components/atoms';
-import { FaRegCopy, FaCheck } from 'react-icons/fa';
-import { Input } from 'components/molecules';
+import { Input, ClipboardCard } from 'components/molecules';
 import { usePreviousArticles } from './usePreviousArticles';
+import { useScrollToElement } from 'hooks';
 
 export const Summarizer: React.FC = (): JSX.Element => {
   const [inputUrl, setInputUrl] = useState<string>('');
   const [summary, setSummary] = useState<string | null>(null);
-  const [copied, setCopied] = useState<string | null>(null);
   const [previousArticles, setPreviousArticles] = usePreviousArticles();
+  useScrollToElement('article-summary', summary);
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
@@ -45,13 +45,11 @@ export const Summarizer: React.FC = (): JSX.Element => {
     [setInputUrl]
   );
 
-  const handleCopy = useCallback(
-    (copyUrl: string) => () => {
-      setCopied(copyUrl);
-      navigator.clipboard.writeText(copyUrl);
-      setTimeout(() => setCopied(null), 3000);
+  const handlePreviousArticleClick = useCallback(
+    (summary: string) => () => {
+      setSummary(summary);
     },
-    [setCopied]
+    [setSummary]
   );
 
   useEffect(() => {
@@ -63,15 +61,9 @@ export const Summarizer: React.FC = (): JSX.Element => {
     }
   }, [setPreviousArticles]);
 
-  useEffect(() => {
-    if (summary) {
-      setTimeout(() => window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' }), 100);
-    }
-  }, [summary]);
-
   return (
     <React.Fragment>
-      {/* Search */}
+      {/* Form */}
       <div className="flex flex-col w-full gap-2">
         <form className="relative flex flex-col gap-4 justify-center items-center" onSubmit={handleSubmit}>
           <Input
@@ -89,7 +81,7 @@ export const Summarizer: React.FC = (): JSX.Element => {
       </div>
 
       {/* Display Result */}
-      <div className="my-10 max-w-full flex justify-center items-center">
+      <div id="article-summary" className="my-10 max-w-full flex justify-center items-center">
         {isFetching ? <Loader /> : null}
         {error ? <ErrorText>Something went wrong :( please try again later!</ErrorText> : null}
         {summary ? (
@@ -101,15 +93,13 @@ export const Summarizer: React.FC = (): JSX.Element => {
           </div>
         ) : null}
       </div>
+
       {/* Browse History */}
       <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
         {previousArticles.reverse().map((item, index) => (
-          <Card key={`link-${index}`} onClick={() => setSummary(item.summary)} className="link_card">
-            <div className="copy_btn" onClick={handleCopy(item.url)}>
-              {copied === item.url ? <FaCheck /> : <FaRegCopy />}
-            </div>
-            <p className="flex-1 text-blue-700 font-medium text-sm truncate dark:text-blue-300">{item.url}</p>
-          </Card>
+          <ClipboardCard key={`link-${index}`} copyString={item.url} onClick={handlePreviousArticleClick(item.summary)}>
+            {item.url}
+          </ClipboardCard>
         ))}
       </div>
     </React.Fragment>

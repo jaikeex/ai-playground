@@ -1,11 +1,13 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Button, ErrorText, Card, Loader } from 'components/atoms';
 import { TextArea } from 'components/molecules';
 import { useLazyGetImageQuery } from 'store';
+import { useScrollToElement } from 'hooks';
 
 export const ImageGenerator: React.FC = (): JSX.Element => {
   const [promptInput, setPromptInput] = useState<string>('');
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
+  useScrollToElement('generated-image', generatedImage);
 
   const [getImage, { isFetching, error }] = useLazyGetImageQuery();
 
@@ -15,7 +17,7 @@ export const ImageGenerator: React.FC = (): JSX.Element => {
       setGeneratedImage(null);
       const response = await getImage({ prompt: promptInput });
 
-      if (response) {
+      if (response && response.data) {
         setGeneratedImage(response.data);
       }
     },
@@ -28,12 +30,6 @@ export const ImageGenerator: React.FC = (): JSX.Element => {
     },
     [setPromptInput]
   );
-
-  useEffect(() => {
-    if (generatedImage) {
-      setTimeout(() => window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' }), 100);
-    }
-  }, [generatedImage]);
 
   return (
     <React.Fragment>
@@ -52,7 +48,7 @@ export const ImageGenerator: React.FC = (): JSX.Element => {
           </Button>
         </form>
       </div>
-      <div className="my-10 max-w-full flex justify-center items-center">
+      <div id="generated-image" className="my-10 max-w-full flex justify-center items-center">
         {isFetching ? <Loader /> : null}
         {error ? <ErrorText>Something went wrong :( please try again later!</ErrorText> : null}
         {generatedImage ? (

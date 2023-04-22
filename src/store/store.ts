@@ -1,7 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { articleApi } from './articleService';
-import { imageApi } from './imageService';
-import { translationApi } from './translationService';
+import { articleApi, imageApi, translationApi } from './services';
 
 export const store = configureStore({
   reducer: {

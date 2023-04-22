@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { useLazyTranslateQuery } from 'store';
-import languages, { findLaguageByValue } from 'utils/translation-languages';
+import { languages, findLaguageByValue } from 'utils';
 import { Select, TextArea } from 'components/molecules';
-import { Button, Card, Loader } from 'components/atoms';
-import { ErrorText } from 'components/atoms/ErrorText';
+import { Button, Card, Loader, ErrorText } from 'components/atoms';
+import { useScrollToElement } from 'hooks';
 
 type Language = (typeof languages)[number]['value'];
 
@@ -12,6 +12,7 @@ export const Translator: React.FC = (): JSX.Element => {
   const [targetLanguage, setTargetLanguage] = useState<Language>('en');
   const [translatedText, setTranslatedText] = useState<string | null>(null);
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
+  useScrollToElement('translated-text', translatedText);
 
   const [translate, { isFetching, error }] = useLazyTranslateQuery();
 
@@ -22,7 +23,7 @@ export const Translator: React.FC = (): JSX.Element => {
       setDetectedLanguage(null);
       const { data } = await translate({ text: inputText, language: targetLanguage });
 
-      if (data) {
+      if (data && data.microsoft) {
         const detectedLanguageFromData = data.microsoft.original_response[0].detectedLanguage.language;
 
         setTranslatedText(data.microsoft.text);
@@ -66,11 +67,11 @@ export const Translator: React.FC = (): JSX.Element => {
             onChange={handleLanguageSelect}
           />
           <Button disabled={isFetching} type="submit">
-            TRANSLATE
+            Translate
           </Button>
         </form>
       </div>
-      <div className="my-10 max-w-full flex justify-center items-center">
+      <div id="translated-text" className="my-10 max-w-full flex justify-center items-center">
         {isFetching ? <Loader /> : null}
         {error ? <ErrorText>Something went wrong :( please try again later!</ErrorText> : null}
         {translatedText ? (

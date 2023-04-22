@@ -10,38 +10,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.main {
-  width: 100vw;
-  min-height: 100vh;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  padding: 120px 24px 160px 24px;
-  pointer-events: none;
-}
-
-.main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
-  position: absolute;
-  content: '';
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  top: 0;
-}
-
-.main:after {
-  content: '';
-  background-image: url('/src/assets/grid.svg');
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  opacity: 0.4;
-  filter: invert(1);
-}
-
 .gradient {
   height: fit-content;
   z-index: 30;
@@ -63,21 +31,15 @@
   opacity: 0.15;
 }
 
-@media screen and (max-width: 640px) {
-  .main {
-    padding: 0;
-  }
-}
-
 /* Tailwind Styles */
 
-.main_test {
-  @apply w-screen min-h-screen fixed flex justify-center pt-28 px-6 pb-40 pointer-events-none before:bg-radial-gradient-circle-light dark:before:bg-radial-gradient-circle-dark before:absolute before:z-20 before:w-full before:h-full before:top-0
+.main {
+  @apply w-screen min-h-screen fixed flex justify-center pt-28 px-6 pb-40 max-md:p-0 pointer-events-none before:bg-radial-gradient-circle-light dark:before:bg-radial-gradient-circle-dark before:absolute before:z-20 before:w-full before:h-full before:top-0
   after:z-10 after:absolute after:w-full after:h-full after:top-0 after:opacity-40 after:invert after:bg-grid;
 }
 
 .app {
-  @apply relative z-10 mx-auto sm:px-16 px-6 pb-12 font-roboto text-black dark:text-white;
+  @apply relative z-10 mx-auto sm:px-16 px-6 py-20 font-roboto text-black dark:text-white;
 }
 
 h1 {
@@ -97,36 +59,25 @@ h4 {
 }
 
 .input {
-  @apply w-full block rounded-md border border-gray-200 bg-white py-2.5 pr-4 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
+  @apply w-full block rounded-md border border-gray-200 dark:border-gray-400 bg-white py-2.5 pr-4 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
 }
 
 .textarea {
-  @apply block w-full resize-none rounded-md border border-gray-200 bg-white py-2.5 pl-2 pr-12 shadow-lg transition-colors focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
-}
-
-.submit_btn {
-  @apply hover:border-gray-700 hover:text-gray-700 absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-10 items-center justify-center rounded border border-gray-200 font-sans text-sm font-medium text-gray-400;
+  @apply block w-full resize-none rounded-md border border-gray-200 dark:border-gray-400 bg-white py-2.5 pl-2 pr-12 shadow-lg transition-colors focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
 }
 
 .btn {
   @apply tracking-wide hover:border-gray-700 hover:bg-slate-200 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-slate-400 bg-white font-sans text-sm font-medium uppercase transition-colors disabled:text-gray-500 disabled:bg-gray-200 disabled:hover:border-slate-400 dark:bg-slate-700 dark:hover:border-gray-300 dark:disabled:hover:border-slate-400 dark:text-white dark:disabled:text-gray-400;
 }
 
-.link_card {
-  @apply p-3 flex justify-start items-center flex-row bg-white border border-gray-200 gap-3 rounded-lg cursor-pointer;
+.clipboard_card {
+  @apply p-3 flex justify-start items-center flex-row bg-white border border-gray-200 dark:border-gray-400 gap-3 rounded-lg cursor-pointer;
 }
 
 .copy_btn {
   @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
 }
 
-.blue_gradient {
-  @apply font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
-}
-
-.summary_box {
-  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
-}
 .card {
   @apply rounded-xl border border-gray-200 bg-white/20 dark:bg-slate-800 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] dark:shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.05)] backdrop-blur p-4;
 }

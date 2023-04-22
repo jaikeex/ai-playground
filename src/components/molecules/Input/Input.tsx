@@ -1,5 +1,5 @@
-import { InputLabel } from 'components/atoms';
 import React from 'react';
+import { InputLabel } from 'components/atoms';
 
 export type InputProps = {
   icon?: JSX.Element;
