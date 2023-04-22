@@ -21,7 +21,7 @@ export const Select: React.FC<SelectProps> = ({
     <select
       {...props}
       id={id}
-      className="bg-white border border-gray-200 text-sm shadow-lg rounded-md font-medium focus:ring-blue-500 focus:border-black block w-full p-2.5 mt-1 appearance-none dark:bg-slate-800 dark:text-white"
+      className="select"
       style={{
         backgroundImage: 'none'
       }}

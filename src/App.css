@@ -54,20 +54,40 @@ h4 {
   @apply font-bold text-gray-600 dark:text-gray-200 text-xl;
 }
 
-.orange_gradient {
-  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+.btn {
+  @apply tracking-wide hover:border-gray-700 hover:bg-slate-200 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-slate-400 bg-white font-sans text-sm font-medium uppercase transition-colors disabled:text-gray-500 disabled:bg-gray-200 disabled:hover:border-slate-400 dark:bg-slate-700 dark:hover:border-gray-300 dark:disabled:hover:border-slate-400 dark:text-white dark:disabled:text-gray-400;
+}
+
+.card {
+  @apply rounded-xl border border-gray-200 bg-white/20 dark:bg-slate-800 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] dark:shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.05)] backdrop-blur p-4;
+}
+
+.error_text {
+  @apply font-bold text-center text-xl text-red-500;
+}
+
+.link {
+  @apply transition-colors text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-gray-100;
+}
+
+.theme_switch_btn {
+  @apply transition-transform will-change-transform hover:scale-105 active:scale-95 text-gray-600 dark:text-gray-300 dark:hover:text-gray-100;
+}
+
+.header {
+  @apply w-screen fixed top-0 right-0 bg-[#fafafa] dark:bg-[#101030] z-50 py-3 px-24 max-sm:px-4 flex justify-between items-center border-b border-slate-200 dark:border-slate-600;
 }
 
 .input {
   @apply w-full block rounded-md border border-gray-200 dark:border-gray-400 bg-white py-2.5 pr-4 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
 }
 
-.textarea {
-  @apply block w-full resize-none rounded-md border border-gray-200 dark:border-gray-400 bg-white py-2.5 pl-2 pr-12 shadow-lg transition-colors focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
+.select {
+  @apply bg-white border border-gray-200 text-sm shadow-lg rounded-md font-medium focus:ring-blue-500 focus:border-black block w-full p-2.5 mt-1 appearance-none dark:bg-slate-800 dark:text-white dark:border-gray-400;
 }
 
-.btn {
-  @apply tracking-wide hover:border-gray-700 hover:bg-slate-200 inset-y-0 right-0 py-0.5 px-2 flex items-center justify-center rounded border border-slate-400 bg-white font-sans text-sm font-medium uppercase transition-colors disabled:text-gray-500 disabled:bg-gray-200 disabled:hover:border-slate-400 dark:bg-slate-700 dark:hover:border-gray-300 dark:disabled:hover:border-slate-400 dark:text-white dark:disabled:text-gray-400;
+.textarea {
+  @apply block w-full resize-none rounded-md border border-gray-200 dark:border-gray-400 bg-white py-2.5 pl-2 pr-12 shadow-lg transition-colors focus:border-black focus:outline-none focus:ring-0 dark:bg-slate-800;
 }
 
 .clipboard_card {
@@ -78,6 +98,6 @@ h4 {
   @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
 }
 
-.card {
-  @apply rounded-xl border border-gray-200 bg-white/20 dark:bg-slate-800 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] dark:shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.05)] backdrop-blur p-4;
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }
