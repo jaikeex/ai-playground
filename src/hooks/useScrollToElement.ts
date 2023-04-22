@@ -8,7 +8,7 @@ export const useScrollToElement = (elementId: string, trigger?: any) => {
       return;
     }
 
-    const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+    const topPosition = targetElement.getBoundingClientRect().top;
 
     window.scrollTo({
       top: topPosition,
