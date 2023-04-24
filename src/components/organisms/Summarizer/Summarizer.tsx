@@ -5,6 +5,7 @@ import { Button, Card, ErrorText, Loader } from 'components/atoms';
 import { Input, ClipboardCard } from 'components/molecules';
 import { usePreviousArticles } from './usePreviousArticles';
 import { useScrollToElement } from 'hooks';
+import { isFetchBaseQueryError, asSummarizeError } from './utils';
 
 export const Summarizer: React.FC = (): JSX.Element => {
   const [inputUrl, setInputUrl] = useState<string>('');
@@ -83,7 +84,11 @@ export const Summarizer: React.FC = (): JSX.Element => {
       {/* Display Result */}
       <div id="article-summary" className="my-10 max-w-full flex justify-center items-center">
         {isFetching ? <Loader /> : null}
-        {error ? <ErrorText>Something went wrong :( please try again later!</ErrorText> : null}
+        {error ? (
+          <ErrorText>
+            {isFetchBaseQueryError(error) ? asSummarizeError(error).data.error : 'Something went wrong :('}
+          </ErrorText>
+        ) : null}
         {summary ? (
           <div className="flex flex-col gap-3">
             <h4>Article Summary</h4>

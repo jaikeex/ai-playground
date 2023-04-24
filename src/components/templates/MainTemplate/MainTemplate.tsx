@@ -4,7 +4,7 @@ import { ToggleButtonGroup } from 'components/molecules';
 import { ImageGenerator, Summarizer, Translator } from 'components/organisms';
 
 export const MainTemplate: React.FC = (): JSX.Element => {
-  const [activeFeature, setActiveFeature] = useState<string>('translator');
+  const [activeFeature, setActiveFeature] = useState<string>('summarizer');
 
   const handleFeatureChange = useCallback(
     (feature: string) => {
@@ -34,7 +34,7 @@ export const MainTemplate: React.FC = (): JSX.Element => {
         Welcome to my multifunctional AI playground! Easily translate text, generate summaries of articles, and create
         images, all in one place!
       </PageTitle>
-      <ToggleButtonGroup defaultValue="translator" onChange={handleFeatureChange} className="mt-16">
+      <ToggleButtonGroup defaultValue="summarizer" onChange={handleFeatureChange} className="mt-16">
         <ToggleButton value="translator">Translator</ToggleButton>
         <ToggleButton value="summarizer">Article Summarizer</ToggleButton>
         <ToggleButton value="image-generator">Image generator</ToggleButton>
