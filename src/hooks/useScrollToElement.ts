@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 export const useScrollToElement = (elementId: string, trigger?: any) => {
-  const scrollToElement = () => {
+  const scrollToElement = useCallback(() => {
     const targetElement = document.getElementById(elementId);
 
     if (!targetElement) {
@@ -14,13 +14,13 @@ export const useScrollToElement = (elementId: string, trigger?: any) => {
       top: topPosition,
       behavior: 'smooth'
     });
-  };
+  }, [elementId]);
 
   useEffect(() => {
     if (trigger) {
       scrollToElement();
     }
-  }, [trigger]);
+  }, [trigger, scrollToElement]);
 
   return scrollToElement;
 };

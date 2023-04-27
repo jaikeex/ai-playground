@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import { useThemeDetector } from './useThemeDetector';
 import { useLocalStorageTheme } from './useLocalStorageTheme';
 
